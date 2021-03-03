@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/600px-JavaScript-logo.png"
+      sizes="16x16 32x32"
+      type="image/png"
+    />
+    <title>pai</title>
+    <!--Ion Icons-->
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+    <!--Google Fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Aldrich&display=swap"
+      rel="stylesheet"
+    />
+    <!--Our own stylesheet-->
+   <style>
+       /*Start*/ 
+/*Start*/
+/*GlobalStyles*/
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+.cta {
+    display: inline;
+}
+html{
+    font-family: 'Nunito',sans-serif;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+p{
+    font-size: 1.6rem;
+}
+img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+section{
+    padding: 5rem, 0;
+}
+
+/*header*/
+
+header{
+    width: 100%;
+    height: 5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+}
+.container{
+    width: 100%;
+    max-width: 98rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    
+    
+}
+
+nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+.nav-brand{
+    width: 2rem;
+
+}
+.menu-icons{
+    font-size: 3.5rem;
+    color:#000000;
+    cursor: pointer;
+
+}
+.close i{
+    color: #eb648c;
+
+}
+.nav-list{
+    width: 25rem;
+    height: 100vh;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    right: -26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    transition: all 650ms ease-in-out;
+}
+.nav-list.active{
+    right: 0;
+}
+.close{
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+}
+.nav-item{
+    margin: 1.5rem 0;
+}
+.nav-link{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color:rgba(0,0,0,.7);
+}
+
+/*Hero*/
+.hero{
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(49,24,131,0.9) 0%, rgba(72,56,149,0.8) 100%), url("images/header-bg.jpg") center no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.hero::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 4.7rem;
+    background: url() center no-repeat;
+    background-size: cover;
+}
+.main-message{
+    width: 100%;
+    max-width: 50rem;
+    color: #fafafa;
+    text-transform: uppercase;
+    transform: translateY(20%);
+
+}
+.main-message h3{
+    font-size: 1.6rem;
+}
+.main-message h1{
+    font-family: 'Aldrich', sans-serif;
+    font-size: 4rem;
+    margin: 1rem 0;
+}
+.main-message p{
+    text-transform: lowercase;
+}
+.btn{
+    background-color: #eb648c;
+    border-radius: 2rem;
+    color: #000000;
+    display: inline-block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem 2.5rem;
+    text-transform: uppercase;
+    transition: background-color 650ms;
+}
+.btn:hover{
+    background-color: #ce587b;
+}
+/*experience the outdoors*/
+
+.experience-outdoors{
+    padding: 0;
+}
+.title-heading{
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 10rem;
+    color: rgba(0,0,0,.7);
+}
+.title-heading h3{
+    font-size: 1.4rem;
+}
+.title-heading h1{
+    font-family: 'Aldrich', sans-serif;
+    font-size: 2rem;
+    margin: .5rem 0 1rem ;
+}
+.title-heading p{
+    text-transform: lowercase;
+}
+.activites-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 2.5rem;
+}
+.activites-grid-item{
+    height: 40rem;
+    padding: 5rem;
+    color: #000000;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+}
+.activites-grid-item::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(49, 24, 131, 0.9) 0%, rgba(72, 56, 149, 0.8) 100%);
+    z-index: -1;
+}
+.star-gazing{
+    background: url("https://camo.githubusercontent.com/82a5f91b3c5f8ff699f9a79ef46a81b3c7800d7e8e63651b1a75810f24106b0e/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f656d6f6a69732f3739353534343133343431363732383036352e676966") center no-repeat;
+}
+.hiking{
+    background: url("https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg") center no-repeat;
+}
+.camping{
+    background: url("https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png") center no-repeat;
+}
+.activites-grid-item i{
+    font-size: 4rem;
+    color: #eb648c;
+}
+.activites-grid-item h1{
+    font-family: 'Aldrich', sans-serif;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    margin: 2rem 0;
+}
+/*testimonials*/
+.testimonials{
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient(135deg, rgba(49,24,131,0.9) 0%, rgba(72,56,149,0.8) 100%), url("https://upload.wikimedia.org/wikipedia/commons/7/73/Step6skasm.PNG") center no-repeat fixed;
+    background-size: cover;
+    position: relative;
+}
+.testimonials::before{
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 4.7rem;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/7/73/Step6skasm.PNG") center no-repeat;
+    background-size: cover;
+}
+.testimonial{
+    width: 100%;
+    color: #fafafa;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.testimonial-text-box{
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+
+}
+.testimonial-text-box i{
+    position: absolute;
+    top: -8rem;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: 8rem;
+    color: #eb648c;
+    opacity: .5;
+    z-index: -1;
+}
+.testimonial-customer img{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 100%;
+    border: 3px solid #eb648c; 
+    src
+}
+/*Adventures*/
+footer{
+    padding: 2.5rem 0;
+    background-color: #d7d4ed;
+    text-align: center;
+    color: rgba(0,0,0,0.7);
+}
+
+/*Media Queries*/
+
+@media screen and (min-width: 350px){
+    .main-message{
+        transform: translateY(40%);
+    }
+}
+@media screen and (min-width: 470px){
+    .hero::before{
+        height: 9.4rem;
+        background: url("");
+        background-size: cover;
+    }
+    .testimonials::before{
+        height: 9.4rem;
+        background: url("");
+        background-size: cover;
+    }
+
+}
+@media screen and (min-width: 700px){
+    header{
+        height: 8rem;
+    }
+    .nav-brand{
+        width: 3.5rem;
+    }
+    .nav-list{
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        position: initial;
+        top: initial;
+        right: initial;
+        flex-direction: row;
+        transition: initial;
+    }
+    .menu-icons{
+        display: none;
+    }
+    .nav-item{
+        margin: 0 2.5rem;
+    }
+    .nav-link,
+    .current{
+        color: #000;
+        position: relative;
+        font-size: 1.3rem;
+    }
+    .nav-link::before,
+    .current::before{
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -.5rem;
+        background-color: #eb648c;
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 650ms;
+
+    }
+    .current::before{
+        transform: scaleX(1);
+    }
+    .nav-link:hover::before{
+        transform: scaleX(1);
+    }
+    .hero{
+        height: 60vh;
+    }
+    .main-message{
+        transform: translateY(50%);
+    }
+    .title-heading h1{
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 950px){
+    .hero::before{
+        height: 22.7rem;
+        background: url("");
+        background-size: cover;
+    }
+    .testimonials::before{
+        height: 22.7rem;
+        background: url("");
+        background-size: cover;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .hero{
+        height: 75vh;
+    }
+}
+   </style>
+  </head>
+  <body>
+   <main>
+      <section class="hero">
+        <div class="container">
+          <div class="main-message">
+            <h3>pai webpage</h3>
+            <h1>First is the quality</h1>
+            <p>
+              Hello, my name is pai!, i'm 15 years old and im from colombia.
+            </p>
+            <div class="cta">
+              <a href="https://github.com/paijose" class="btn">GitHub</a>
+            </div>
+
+            <div class="cta">
+                <a href="https://gitlab.com/paijose" class="btn">GitLab</a>
+              </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-outdoors">
+        <div class="container">
+          <div class="title-heading">
+            <h3></h3>
+            <h1>I really like Rust, javascript and golang</h1>
+            <p>
+              here is some of my proyects
+            </p>
+          </div>
+          <div class="activites-grid">
+            <!--grid item #1-->
+            <div class="activites-grid-item star-gazing">
+              <i class="">
+                <h1>go-raid</h1>
+                <p>
+                  <a style="color:white" href="https://github.com/paijose/go-raid">
+                    raid discord server with varius bots, just for test don't use it an dont ban me
+                  </a>
+
+                </p>
+              </i>
+            </div>
+           <!--grid item #2-->
+
+             <div class="activites-grid-item hiking">
+              <i class="">
+                <h1>paichat</h1>
+                <p>
+                    <a style="color:white" href="https://chat-pai.herokuapp.com/">
+                  a cool chat that i making with my friend ranon-rat,
+                  its in alfa but i making cool stuffs for the chat
+                  </a>
+                </p>
+              </i>
+            </div>
+                 <!--other-->
+            <div class="activites-grid-item star-gazing">
+                <i class="">
+                  <h1>go-rest-api</h1>
+                  <p>
+                      <a style="color:white" href="https://github.com/paijose/go-rest-api-crud">
+                     a simple rest api with go
+                    </a>
+                  </p>
+                </i>
+              </div>
+                  <!--other-->
+              <div class="activites-grid-item camping">
+                <i class="">
+                  <h1>quiz-react</h1>
+                  <p>
+                      <a style="color:white" href="https://react-quiz-test.netlify.app/">
+                       a simple example of typescript and react
+                    </a>
+                  </p>
+                </i>
+              </div>
+            <!--grid item #2-->
+              <div class="activites-grid-item star-gazing">
+              <i class="">
+                <h1>go-memes</h1>
+                <p>
+                  <a style="color:white" href="https://gruh-memes.elpanajose.repl.co/">
+                  page made in go that consumes my api-bruh
+                  </a>
+                </p>
+              </i>
+            </div>
+
+            <!-- otro -->
+               <div class="activites-grid-item hiking">
+              <i class="">
+                <h1>sha256</h1>
+                <p>
+                  <a style="color:white" href="https://github.com/paijose/sha256">
+                    a simple encryptor
+                  </a>
+                </p>
+              </i>
+            </div>
+            <!-- otro -->
+      </section>
+
+      <section class="testimonials">
+        <div class="container">
+          <div class="testimonial">
+            <div class="testimonial-text-box">
+              <p>contact me in discord like pai#5470</p>
+              <i class="icon ion-md-quote"></i>
+            </div>
+            <div class="testimonial-customer">
+              <img src="https://cdn.discordapp.com/attachments/801216707964305418/801459004576497694/pfp.gif" alt="" />
+              <h1>Pai</h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </main>
+    <footer>
+      <p>&copy; 2021 pai All rights reserved.</p>
+    </footer>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
