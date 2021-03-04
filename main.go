@@ -19,7 +19,7 @@ func page(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	log.Println("server on")
+	log.Println("server on port 8080")
 	http.HandleFunc("/", page)
 	port, ok := os.LookupEnv("PORT")
 
